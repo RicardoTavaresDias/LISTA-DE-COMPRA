@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- fonte google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+
+    <!-- link css -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- fonte google Inter-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+<header>           
+    <img src="assets/logo.png" alt="">
+</header>
+
+<main>
+    <section class="seta">
+        <div>
+            <!-- Seta - voltar -->
+            <a href="#">← voltar</a>
+        </div>
+    </section>
+
+    <form class="compras-semana">
+        <legend>Compras da semana</legend>
+
+        <div class="container-item">
+            <input type="text" name="item" id="item" placeholder="Adicione um novo item">
+            <button type="submit">Adicionar item</button>
+        </div>
+
+        <div class="container-lista">
+
+            <div>
+                <label>
+                    <input type="checkbox">Pão de forma
+                </label>
+                <a href="#"><img src="assets/icon/exclusao.svg" alt=""></a>
+            </div>
+
+            <div>
+                <label>
+                    <input type="checkbox">Café preto
+                </label>
+                <a href="#"><img src="assets/icon/exclusao.svg" alt=""></a>
+            </div>
+
+        </div>
+
+        <div class="container-alert">
+            <div class="alert">
+                <div>
+                    <img src="assets/icon/alert.svg" alt="">
+                    <span>O item foi removido da lista</span>
+                </div>
+                <img src="assets/icon/marcadorExclusao.svg" alt="">
+            </div>
+        </div>
+    </form>
+
+
+</main>
+
+</body>
+</html>

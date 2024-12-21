@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Background */
+    --background-primary: #F4F5FB;
+    --background-secondary: #FFFFFF;
+
+    /* Color */
+    --color-brand: #CA3884;
+    --color-brand-hover: #A52C6B;
+    --color-danger: #C93847;
+
+    /* Content */
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --content-tertiary: #9CA3AF;
+    --always-white: #FFFFFF;
+
+    /* Border */
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
+
+    /* fonts */
+
+    --title: 800 24px/32px "Inter", serif;
+    --label: 600 16px/20px "Inter", serif;
+    --paragraph: 500 16px/20px "Inter", serif;
+    --link: 500 14px/16px "Inter", serif;
+}
+
+body {
+    background-color: var(--background-primary);
+    padding-top: 45px;
+}
+
+
+header {
+    max-width: 1280px;
+    min-width: 375px;
+
+    text-align: center;
+    margin-inline: auto;
+}
+
+
+main {
+    max-width: 1280px;
+    min-width: 375px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 627px;
+    margin-block: 62px 16px;
+}
+
+section a {
+    font: var(--link);
+    color: var(--color-brand);
+    text-decoration: none;
+}
+
+form {
+    margin-inline: auto;
+}
+
+
+legend {
+    color: var(--content-primary);
+    font: var(--title);
+    margin-bottom: 44px;
+}
+
+.container-item {
+    margin-bottom: 40px;
+}
+
+.container-item input {
+    width: 451px;
+    height: 44px;
+    border-radius: 12px;
+    color: var(--content-tertiary);
+    font: var(--paragraph);
+    outline: 2px solid var(--border-primary);
+    background-color: var(--background-secondary);
+    padding-left: 18px;
+    border: none;
+}
+
+.container-item input:hover {
+    outline: 2px solid var(--border-hover);
+}
+
+.container-item input:focus {
+    color: var(--content-primary);
+    outline: 2px solid var(--color-brand);
+}
+
+.container-item button {
+    width: 160px;
+    height: 44px;
+    vertical-align: top;
+    border-radius: 12px;
+    font: var(--label);
+    color: var(--always-white);
+    background-color: var(--color-brand);
+    border: none;
+    margin-left: 16px;
+}
+
+.container-item button:hover {
+    background-color: var(--color-brand-hover);
+}
+
+.container-lista {
+    margin-bottom: 36px;
+}
+
+.container-lista div {
+    outline: 2px solid var(--border-primary);
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 12px;
+
+    background-color: var(--background-secondary);
+    border-radius: 12px;
+    height: 49px;
+    color: var(--content-tertiary);
+    font: var(--paragraph);
+
+    margin-bottom: 12px;
+}
+
+.container-lista div:hover {
+    outline: 2px solid var(--border-hover);
+}
+
+
+.container-lista label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.container-lista label input {
+    border: 1.5px solid var(--border-primary);
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 6px;
+}
+
+.container-lista label input:hover {
+    border: 1.5px solid var(--border-hover);
+}
+
+.container-lista label input:checked {
+    background-color: var(--color-brand);
+    background-image: url(assets/icon/checket.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 9px;
+    border: none;
+}
+
+
+.container-alert .alert {
+    background-color: var(--color-danger);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 12px;
+    border-radius: 12px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.container-alert .alert div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.container-alert .alert div span {
+    font: var(--label);
+    color: var(--always-white);
+}
+
+
+
+
+
+/* mobile */
+@media (width < 700px) {
+
+    main {
+        padding-inline: 31px;
+    }
+    
+    section {
+        width: 100%; 
+    }
+    
+    .container-item input {
+        width: 100%;
+    }
+     
+    .container-item button {
+        width: 100%;        
+        margin-left: 0px;
+        margin-top: 16px;
+    }    
+}
+
+
