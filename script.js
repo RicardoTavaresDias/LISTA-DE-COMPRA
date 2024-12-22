@@ -25,6 +25,7 @@ form.addEventListener ("submit", (event) => {
     document.querySelector(".alert").style.display = "flex"
     document.querySelector("span").textContent = `Valor digitado "${item.value}" é invalido, valores não corresponde para cadastro!`
     document.querySelector(".alert").style.backgroundColor = "#C93847"
+    document.querySelector("#item").style.outlineColor = "#C93847"
 
     document.querySelector("#item").value = ""
 
@@ -33,6 +34,7 @@ form.addEventListener ("submit", (event) => {
     document.querySelector(".alert").style.display = "flex"
     document.querySelector("span").textContent = "Favor digitar o campo!"
     document.querySelector(".alert").style.backgroundColor = "#C93847"
+    document.querySelector("#item").style.outlineColor = "#C93847"
 
     document.querySelector("#item").value = ""
 
@@ -64,6 +66,7 @@ form.addEventListener ("submit", (event) => {
     document.querySelector(".alert").style.display = "flex"
     document.querySelector(".alert").style.backgroundColor = "#55a19e"
     document.querySelector("span").textContent = "Item Cadastrado com Sucesso!"
+    document.querySelector("#item").style.outlineColor = "#D1D5DB"
 
   } 
 })
@@ -89,12 +92,12 @@ function excluirProduto(id) {
     document.querySelector(`.${id}`).remove(div)
     document.querySelector(".alert").style.display = "flex"
     document.querySelector(".alert").style.backgroundColor = "#55a19e"
-    document.querySelector("span").textContent = "Item foi removido da lista"
-    
+    document.querySelector("span").textContent = "Item foi removido da lista"  
   } else {
     document.querySelector(".alert").style.display = "flex"
     document.querySelector("span").textContent = "Favor marcar o Item para ser removido!"
     document.querySelector(".alert").style.backgroundColor = "#C93847"
+    document.querySelector(`.${id}`).style.outlineColor = "#C93847"
   }
 }
 
