@@ -5,6 +5,9 @@ const item = document.getElementById("item")
 const checkbox = document.querySelector('input[type="checkbox"]')
 
 
+
+
+
 // Adicionando o Item na lista
 form.addEventListener ("submit", (event) => {
   event.preventDefault()
@@ -15,31 +18,54 @@ form.addEventListener ("submit", (event) => {
   const img = document.createElement("img")
   const a = document.createElement("a")
 
+  //Validação do Input Text
+  const textSpace = item.value.replace(/ /gi, "") //Remove espaços do texto
+  const regex = /[0-9!@]/ // valida sem tem numero e outros tipo de caracteres no texto
 
-  div.className = item.value
+  if (regex.test(textSpace)) { //validador de string
 
-  label.textContent = item.value
-  div.append(label)
+    document.querySelector(".alert").style.display = "flex"
+    document.querySelector("span").textContent = `Valor digitado "${item.value}" é invalido, valores não corresponde para cadastro!`
+    document.querySelector(".alert").style.backgroundColor = "#C93847"
 
-  input.type = "checkbox"
-  input.name = "itens"
-  input.id = item.value
-  input.value = item.value
-  label.append(input)
+  } else {
+    
+    div.className = textSpace
+
+    label.textContent = item.value
+    div.append(label)
   
-  a.href = "#"
-  a.id = "excluir"
-  a.setAttribute("onclick", `excluirProduto("${item.value}")`)
-  div.append(a)
+    input.type = "checkbox"
+    input.name = "itens"
+    input.id = textSpace
+    input.value = textSpace
+    label.append(input)
+    
+    a.href = "#"
+    a.id = "excluir"
+    a.setAttribute("onclick", `excluirProduto("${textSpace}")`)
+    div.append(a)
+  
+    img.src = "assets/icon/exclusao.svg"
+    img.alt = " "
+    a.append(img)
+    document.querySelector(".container-lista").append(div)
+  
+    //console.log(div) 
 
-  img.src = "assets/icon/exclusao.svg"
-  img.alt = " "
-  a.append(img)
+    document.querySelector(".alert").style.display = "flex"
+    document.querySelector(".alert").style.backgroundColor = "#55a19e"
+    document.querySelector("span").textContent = "Item Cadastrado com Sucesso!"
+
+  } 
+})
 
 
-  document.querySelector(".container-lista").append(div)
 
-  console.log(div)  
+//Fechar o Alert
+document.querySelector("#alert").addEventListener("click", (event) => {
+  const close = document.querySelector(".alert")
+  close.style.display = "none"
 })
 
 
@@ -47,14 +73,20 @@ form.addEventListener ("submit", (event) => {
 // Removendo o item da lista 
 function excluirProduto(id) {
   const checkboxChecked = document.querySelector(`#${id}`).checked
-  const div = document.createElement("div")
+  const div = document.createElement("div") 
 
   if (checkboxChecked) {
-    console.log("checked!")
-    console.log(id)
+    // console.log("checked!")
+    // console.log(id)
     document.querySelector(`.${id}`).remove(div)
+    document.querySelector(".alert").style.display = "flex"
+    document.querySelector(".alert").style.backgroundColor = "#55a19e"
+    document.querySelector("span").textContent = "Item foi removido da lista"
+    
   } else {
-    console.log("no checked!")
+    document.querySelector(".alert").style.display = "flex"
+    document.querySelector("span").textContent = "Favor marcar o Item para ser removido!"
+    document.querySelector(".alert").style.backgroundColor = "#C93847"
   }
 }
 
