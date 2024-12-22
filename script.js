@@ -19,9 +19,10 @@ form.addEventListener ("submit", (event) => {
   //Validação do Input Text
   const textSpace = item.value.replace(/ /gi, "") //Remove espaços do texto
   //const regex = /[0-9!@]/ 
-  const regex = /[0-9!@#$%¨&*(){}[?/;:.,\]|'"´`=-_]/ // valida sem tem numero e outros tipo de caracteres no texto
+  const regex = /[0-9!@#$%¨&*(){}[?/;:.,\]|'"´`=-]/ // valida sem tem numero e outros tipo de caracteres no texto
+  const regeX = /\W/ // Validação se tem acentos
 
-  if (regex.test(textSpace)) { // validador de string
+  if (regex.test(textSpace) || regeX.test(textSpace)) { // validador de string
 
     document.querySelector(".alert").style.display = "flex"
     document.querySelector("span").textContent = `Valor Invalido - "${item.value}"`
