@@ -1,23 +1,23 @@
-let form = document.querySelector("form")
-let item = document.getElementById("item")
-let checkbox = document.querySelector('input[type="checkbox"]')
+
+//Variaveis
+const form = document.querySelector("form")
+const item = document.getElementById("item")
+const checkbox = document.querySelector('input[type="checkbox"]')
 
 
+// Adicionando o Item na lista
 form.addEventListener ("submit", (event) => {
   event.preventDefault()
 
-  // Adicionando o Item na lista
-  let div = document.createElement("div")
-  let label = document.createElement("label")
-  let input = document.createElement("input")
-  let img = document.createElement("img")
-  let a = document.createElement("a")
+  const div = document.createElement("div")
+  const label = document.createElement("label")
+  const input = document.createElement("input")
+  const img = document.createElement("img")
+  const a = document.createElement("a")
 
 
   div.className = item.value
 
-  // label.name = "itens"
-  // label.id = "itens"
   label.textContent = item.value
   div.append(label)
 
@@ -29,7 +29,6 @@ form.addEventListener ("submit", (event) => {
   
   a.href = "#"
   a.id = "excluir"
-  //a.style.cursor = "pointer"
   a.setAttribute("onclick", `excluirProduto("${item.value}")`)
   div.append(a)
 
@@ -37,29 +36,18 @@ form.addEventListener ("submit", (event) => {
   img.alt = " "
   a.append(img)
 
-  
 
-document.querySelector(".container-lista").append(div)
+  document.querySelector(".container-lista").append(div)
 
   console.log(div)  
 })
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+// Removendo o item da lista 
 function excluirProduto(id) {
   const checkboxChecked = document.querySelector(`#${id}`).checked
-  let div = document.createElement("div")
+  const div = document.createElement("div")
 
   if (checkboxChecked) {
     console.log("checked!")
@@ -78,31 +66,30 @@ function excluirProduto(id) {
 
 
 
+//############## Aqui é exemplo de pegar os selecionados checked e remover da lista ###########################
 
 
-// // Removendo o item na lista
-// removeItem.forEach((itemRemove) => {
-
-// itemRemove.addEventListener("click", (event) => {
+// const checkbox = document.querySelectorAll('input[type="checkbox"]') 
+// const removeItem = document.querySelectorAll(".excluir")
   
-//   checkbox.forEach((element) => {
-
-//     if (element.checked) {
-//       // console.log("checked!")
-//       console.log(element.value)
+//   // Removendo o item da lista 
+//   removeItem.forEach((itemRemove) => { 
+//     itemRemove.addEventListener("click", (event) => { 
+//       checkbox.forEach((element) => { 
+//       if (element.checked) { 
   
-//       let div = document.createElement("div")
-//       //document.querySelector(`.${element.value}`).remove(div)
-      
-   
-//     }else {
-//       console.log("no checked!")
-//     }
-  
+//           // console.log("checked!") 
+//           console.log(element.value) 
+          
+//           const div = document.createElement("div") 
+//           //document.querySelector( .${element.value}).remove(div) 
+          
+//           }else { 
+//           console.log("nenhum verificado!") 
+//           } 
+//       }) 
+//     }) 
 //   })
-//   })
-
-// })
 
 
 
