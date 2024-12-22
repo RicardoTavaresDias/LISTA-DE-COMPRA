@@ -26,11 +26,15 @@ form.addEventListener ("submit", (event) => {
     document.querySelector("span").textContent = `Valor digitado "${item.value}" é invalido, valores não corresponde para cadastro!`
     document.querySelector(".alert").style.backgroundColor = "#C93847"
 
+    document.querySelector("#item").value = ""
+
   } else if (textSpace === "") { // Outra validação para verificar se o texto está em branco
 
     document.querySelector(".alert").style.display = "flex"
     document.querySelector("span").textContent = "Favor digitar o campo!"
     document.querySelector(".alert").style.backgroundColor = "#C93847"
+
+    document.querySelector("#item").value = ""
 
   } else {
     
