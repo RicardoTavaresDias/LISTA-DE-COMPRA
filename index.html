@@ -40,20 +40,28 @@
 
         <div class="container-lista">
 
-            <div class="Pão de forma">
+            <div class="pao">
                 <label name="itens" id="itens">
                     Pão de forma
-                    <input type="checkbox" name="itens" id="itens" value="Pão de forma">
+                    <input type="checkbox" name="itens" id="pao" value="pao">
                 </label>
-                <a href="#"><img src="assets/icon/exclusao.svg" alt=""></a>
+                <a href="#" onclick ='excluirProduto("pao")'><img src="assets/icon/exclusao.svg" alt=""></a>
             </div>
 
             <div class="cafe">
-                <label name="itens" id="itens">
+                <label  id="itens">
                     Café preto
-                    <input type="checkbox" name="itens" id="itens" value="Café preto" >
+                    <input type="checkbox" name="itens" id="cafe" value="cafe" >
                 </label>
-                <a href="#"><img src="assets/icon/exclusao.svg" alt=""></a>
+                <a href="#" onclick ='excluirProduto("cafe")'><img src="assets/icon/exclusao.svg" alt=""></a>
+            </div>
+
+            <div class="teste">
+                <label  id="itens">
+                    Teste
+                    <input type="checkbox" name="itens" id="teste" value="teste">
+                </label>
+                <a href="#" onclick ='excluirProduto("teste")' ><img src="assets/icon/exclusao.svg" alt=""></a>
             </div>
 
         </div>
