@@ -6,8 +6,6 @@ const checkbox = document.querySelector('input[type="checkbox"]')
 
 
 
-
-
 // Adicionando o Item na lista
 form.addEventListener ("submit", (event) => {
   event.preventDefault()
@@ -22,10 +20,16 @@ form.addEventListener ("submit", (event) => {
   const textSpace = item.value.replace(/ /gi, "") //Remove espaços do texto
   const regex = /[0-9!@]/ // valida sem tem numero e outros tipo de caracteres no texto
 
-  if (regex.test(textSpace)) { //validador de string
+  if (regex.test(textSpace)) { // validador de string
 
     document.querySelector(".alert").style.display = "flex"
     document.querySelector("span").textContent = `Valor digitado "${item.value}" é invalido, valores não corresponde para cadastro!`
+    document.querySelector(".alert").style.backgroundColor = "#C93847"
+
+  } else if (textSpace === "") { // Outra validação para verificar se o texto está em branco
+
+    document.querySelector(".alert").style.display = "flex"
+    document.querySelector("span").textContent = "Favor digitar o campo!"
     document.querySelector(".alert").style.backgroundColor = "#C93847"
 
   } else {
