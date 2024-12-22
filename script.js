@@ -54,7 +54,7 @@ form.addEventListener ("submit", (event) => {
     img.alt = " "
     a.append(img)
     document.querySelector(".container-lista").append(div)
-  
+    document.querySelector("#item").value = ""
     //console.log(div) 
 
     document.querySelector(".alert").style.display = "flex"
