@@ -18,12 +18,13 @@ form.addEventListener ("submit", (event) => {
 
   //Validação do Input Text
   const textSpace = item.value.replace(/ /gi, "") //Remove espaços do texto
-  const regex = /[0-9!@]/ // valida sem tem numero e outros tipo de caracteres no texto
+  //const regex = /[0-9!@]/ 
+  const regex = /[0-9!@#$%¨&*(){}[?/;:.,\]|'"´`=-_]/ // valida sem tem numero e outros tipo de caracteres no texto
 
   if (regex.test(textSpace)) { // validador de string
 
     document.querySelector(".alert").style.display = "flex"
-    document.querySelector("span").textContent = `Valor digitado "${item.value}" é invalido, valores não corresponde para cadastro!`
+    document.querySelector("span").textContent = `Valor Invalido - "${item.value}"`
     document.querySelector(".alert").style.backgroundColor = "#C93847"
     document.querySelector("#item").style.outlineColor = "#C93847"
 
