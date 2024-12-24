@@ -3,6 +3,9 @@
 const form = document.querySelector("form")
 const item = document.getElementById("item")
 const checkbox = document.querySelector('input[type="checkbox"]')
+const alertIn = document.querySelector(".alert")
+const alertClose = document.querySelector(".close")
+const alertSpan = document.querySelector("span")
 
 
 
@@ -40,7 +43,7 @@ form.addEventListener ("submit", (event) => {
     img.alt = " "
     a.append(img)
     document.querySelector(".container-lista").append(div)
-    document.querySelector("#item").value = ""
+    item.value = ""
     //console.log(div) 
 
     alert("flex", "Item Cadastrado com Sucesso!", "#55a19e", "#D1D5DB")
@@ -59,10 +62,10 @@ function validCaracteres(value) {
 
   if (regex.test(textSpace) || regeX.test(textSpace)) { // validador de string
     alert("flex", `Valor Invalido - "${item.value}"`, "#C93847", "#C93847")
-    document.querySelector("#item").value = ""
+    item.value = ""
    } else if (textSpace === "") { // Outra validação para verificar se o texto está em branco
      alert("flex", "Favor digitar o campo!", "#C93847", "#C93847")
-     document.querySelector("#item").value = ""
+     item.value = ""
    } else {
     return textSpace
    }
@@ -71,8 +74,8 @@ function validCaracteres(value) {
 
 
 //Fechar o Alert
-document.querySelector("#alert").addEventListener("click", (event) => {
-  const close = document.querySelector(".alert")
+alertClose.addEventListener("click", (event) => {
+  const close = alertIn
   close.style.display = "none"
 })
 
@@ -98,10 +101,10 @@ function excluirProduto(id) {
 
 // Alerta de ERROR
 function alert(display, text, background, outline) {
-  document.querySelector(".alert").style.display = display
-  document.querySelector("span").textContent = text
-  document.querySelector(".alert").style.backgroundColor = background
-  document.querySelector("#item").style.outlineColor = outline
+  alertIn.style.display = display
+  alertSpan.textContent = text
+  alertIn.style.backgroundColor = background
+  item.style.outlineColor = outline
 }
 
 
