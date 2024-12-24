@@ -18,9 +18,8 @@ form.addEventListener ("submit", (event) => {
 
   const inputText = validCaracteres(item.value)
 
-  if (inputText == null || inputText == undefined) {
-    
-  } else {
+  if (inputText != null || inputText != undefined) {
+
     div.className = inputText
 
     label.textContent = item.value
@@ -49,7 +48,7 @@ form.addEventListener ("submit", (event) => {
 })
 
 
-
+// Validar o Texto, sem numeros, caracteres invalidos e acentos
 function validCaracteres(value) {
   //Validação do Input Text
   const textSpace = value.replace(/ /gi, "") //Remove espaços do texto
@@ -91,12 +90,13 @@ function excluirProduto(id) {
     alert("flex", "Item foi removido da lista", "#55a19e")
 
   } else {
-    alert("flex", "Favor marcar o Item para ser removido!", "#C93847", "#C93847")
+    alert("flex", "Favor marcar o Item para ser removido!", "#C93847", "")
+    document.querySelector(`.${id}`).style.outlineColor = "#C93847"
   }
 }
 
 
-
+// Alerta de ERROR
 function alert(display, text, background, outline) {
   document.querySelector(".alert").style.display = display
   document.querySelector("span").textContent = text
