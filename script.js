@@ -16,46 +16,25 @@ form.addEventListener ("submit", (event) => {
   const img = document.createElement("img")
   const a = document.createElement("a")
 
-  //Validação do Input Text
-  const textSpace = item.value.replace(/ /gi, "") //Remove espaços do texto
-  //const regex = /[0-9!@]/ 
-  const regex = /[0-9!@#$%¨&*(){}[?/;:.,\]|'"´`=-]/ // valida sem tem numero e outros tipo de caracteres no texto
-  const regeX = /\W/ // Validação se tem acentos
+  const inputText = validCaracteres(item.value)
 
-  if (regex.test(textSpace) || regeX.test(textSpace)) { // validador de string
-
-    document.querySelector(".alert").style.display = "flex"
-    document.querySelector("span").textContent = `Valor Invalido - "${item.value}"`
-    document.querySelector(".alert").style.backgroundColor = "#C93847"
-    document.querySelector("#item").style.outlineColor = "#C93847"
-
-    document.querySelector("#item").value = ""
-
-  } else if (textSpace === "") { // Outra validação para verificar se o texto está em branco
-
-    document.querySelector(".alert").style.display = "flex"
-    document.querySelector("span").textContent = "Favor digitar o campo!"
-    document.querySelector(".alert").style.backgroundColor = "#C93847"
-    document.querySelector("#item").style.outlineColor = "#C93847"
-
-    document.querySelector("#item").value = ""
-
-  } else {
+  if (inputText == null || inputText == undefined) {
     
-    div.className = textSpace
+  } else {
+    div.className = inputText
 
     label.textContent = item.value
     div.append(label)
   
     input.type = "checkbox"
     input.name = "itens"
-    input.id = textSpace
-    input.value = textSpace
+    input.id = inputText
+    input.value = inputText
     label.append(input)
     
     a.href = "#"
     a.id = "excluir"
-    a.setAttribute("onclick", `excluirProduto("${textSpace}")`)
+    a.setAttribute("onclick", `excluirProduto("${inputText}")`)
     div.append(a)
   
     img.src = "assets/icon/exclusao.svg"
@@ -65,13 +44,30 @@ form.addEventListener ("submit", (event) => {
     document.querySelector("#item").value = ""
     //console.log(div) 
 
-    document.querySelector(".alert").style.display = "flex"
-    document.querySelector(".alert").style.backgroundColor = "#55a19e"
-    document.querySelector("span").textContent = "Item Cadastrado com Sucesso!"
-    document.querySelector("#item").style.outlineColor = "#D1D5DB"
-
-  } 
+    alert("flex", "Item Cadastrado com Sucesso!", "#55a19e", "#D1D5DB")
+  }
 })
+
+
+
+function validCaracteres(value) {
+  //Validação do Input Text
+  const textSpace = value.replace(/ /gi, "") //Remove espaços do texto
+
+  //const regex = /[0-9!@]/ 
+  const regex = /[0-9!@#$%¨&*(){}[?/;:.,\]|'"´`=-]/ // valida sem tem numero e outros tipo de caracteres no texto
+  const regeX = /\W/ // Validação se tem acentos
+
+  if (regex.test(textSpace) || regeX.test(textSpace)) { // validador de string
+    alert("flex", `Valor Invalido - "${item.value}"`, "#C93847", "#C93847")
+    document.querySelector("#item").value = ""
+   } else if (textSpace === "") { // Outra validação para verificar se o texto está em branco
+     alert("flex", "Favor digitar o campo!", "#C93847", "#C93847")
+     document.querySelector("#item").value = ""
+   } else {
+    return textSpace
+   }
+}
 
 
 
@@ -91,21 +87,22 @@ function excluirProduto(id) {
   if (checkboxChecked) {
     // console.log("checked!")
     // console.log(id)
-    document.querySelector(`.${id}`).remove(div)
-    document.querySelector(".alert").style.display = "flex"
-    document.querySelector(".alert").style.backgroundColor = "#55a19e"
-    document.querySelector("span").textContent = "Item foi removido da lista"  
+    document.querySelector(`.${id}`).remove(div) 
+    alert("flex", "Item foi removido da lista", "#55a19e")
+
   } else {
-    document.querySelector(".alert").style.display = "flex"
-    document.querySelector("span").textContent = "Favor marcar o Item para ser removido!"
-    document.querySelector(".alert").style.backgroundColor = "#C93847"
-    document.querySelector(`.${id}`).style.outlineColor = "#C93847"
+    alert("flex", "Favor marcar o Item para ser removido!", "#C93847", "#C93847")
   }
 }
 
 
 
-
+function alert(display, text, background, outline) {
+  document.querySelector(".alert").style.display = display
+  document.querySelector("span").textContent = text
+  document.querySelector(".alert").style.backgroundColor = background
+  document.querySelector("#item").style.outlineColor = outline
+}
 
 
 
